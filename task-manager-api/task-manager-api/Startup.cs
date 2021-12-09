@@ -32,6 +32,19 @@ namespace task_manager_api
             services.AddDbContext<ITaskManagerDbContext, TaskManagerDbContext>(builder =>
                 builder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder
+                      .AllowAnyMethod()
+                      .AllowAnyHeader()
+                      .AllowCredentials()
+                      .WithExposedHeaders("Content-Disposition")
+                      .WithOrigins("http://localhost:4200");
+                });
+            });
+
             //Repositories
             services.AddTransient<IProjectRepository, ProjectRepository>();
 
@@ -52,6 +65,7 @@ namespace task_manager_api
 
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseCors();
 
             app.UseEndpoints(endpoints =>
             {

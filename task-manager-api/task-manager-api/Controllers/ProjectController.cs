@@ -19,6 +19,12 @@ namespace task_manager_api.Controllers
         }
 
         [HttpGet]
+        public IActionResult GetProjects()
+        {
+            return Ok(_service.GetProjects());
+        }
+
+        [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
             return Ok(_service.GetProject(id));

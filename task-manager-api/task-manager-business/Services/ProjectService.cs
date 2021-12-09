@@ -20,6 +20,9 @@ namespace task_manager_business.Services
             _mapper = mapper;
         }
 
+        public IEnumerable<ProjectView> GetProjects()
+            => _mapper.Map<IEnumerable<Project>, IEnumerable<ProjectView>>(_repository.GetProjects());
+
         public int AddProject(ProjectView project)
             => _repository.AddProject(_mapper.Map<ProjectView, Project>(project));
 

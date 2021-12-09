@@ -8,8 +8,8 @@ namespace task_manager_business.ViewModels
 {
     public class ProjectView
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Name { get; set; }
-        public string Descripion { get; set; }
+        public string Description { get; set; }
     }
 }

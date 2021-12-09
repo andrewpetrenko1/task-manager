@@ -16,7 +16,7 @@ namespace task_manager_data
                 .HasMaxLength(500)
                 .IsRequired();
             project
-                .Property(p => p.Descripion)
+                .Property(p => p.Description)
                 .HasMaxLength(1000);
 
             var column = modelBuilder.Entity<Column>();

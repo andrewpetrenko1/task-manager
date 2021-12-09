@@ -9,6 +9,7 @@ namespace task_manager_business.Services
 {
     public interface IProjectService
     {
+        IEnumerable<ProjectView> GetProjects();
         int AddProject(ProjectView project);
         ProjectView GetProject(int id);
     }
